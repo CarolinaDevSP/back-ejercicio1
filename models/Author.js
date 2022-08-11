@@ -9,14 +9,14 @@ import mongoose from 'mongoose';
 //instancia de clase con new
 //funciones tienen ()
 const schema = new mongoose.Schema({
-    title: String,
-    author: String,
-    pages: Number,
-    publisher:String,
-    isbn: String,
-    published: Date,
+    name:String,
+    lastname:String,
+    nationality:String,
+    age:Number,
+    genero:String,
+
 });
-//const name = 'Book';
+
 
 //const model= mongoose.model('Book', schema);
-export default mongoose.model('Book', schema);
+export default mongoose.model('Author', schema);

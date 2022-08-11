@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
-import Book from "./models/Book.js";
-
+//import { createBook, deleteBook, readBook, updateBook } from "./crud.js"; 
+import { createAuthor, deleteAuthor, readAuthor, updateAuthor } from "./crudAuthor.js"; 
 const db = mongoose.connection;
 db.on('connected', () => {
-    console.log('connected to mongodb!! ');
+    console.log('connected to mongodb!! 🟢');
 })
 
 db.on('connecting',()=>{
-    console.log('connecting to mongodb...');
+    console.log('connecting to mongodb... 🟡');
 })
 
 db.on('disconnected',()=>{
@@ -15,26 +15,23 @@ db.on('disconnected',()=>{
 })
 
 db.on('error', () => {
-    console.log("se conecto mal");
+    console.log("se conecto mal 🔴");
 })
 
-mongoose.connect('mongodb://localhost:27017/test', () =>{
+mongoose.connect('mongodb+srv://usuario1:SLr498wp1XyEz7QH@cluster0.zvycjid.mongodb.net/?retryWrites=true&w=majority', async() =>{
     console.log('callback de funcion cocnnect');
-    /**
-     * 1- crear un libro 
-     * 2- actualizar libro
-     * 3- leer libro
-     * 4- borrar libro
-     */
-    //modelo que creamos book, book es un obj de js
-    Book.create({
-        title: 'Harry Potter y la piedra filosofal',
-        author: 'J.K. Rowling',
-        pages: '500',
-        publisher: 'Bloomsbury',
-        isbn: '123456789',
-        published: new Date(2015, 12, 31)
-
-
-    })
+    try {
+        //mandamos a llamar createBook, update, read, delete
+   /* await createBook();
+   await updateBook();
+   await readBook();
+   await deleteBook();*/
+   await createAuthor();
+   await updateAuthor();
+   await readAuthor();
+   //await deleteAuthor();
+    } catch (error) {
+        console.log('ocurrio un error', error);
+    }
 });
+

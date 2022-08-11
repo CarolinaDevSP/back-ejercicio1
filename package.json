@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/CarolinaDevSP/back-ejercicio1#readme",
   "dependencies": {
-    "mongoose": "^6.5.1"
+    "mongoose": "^6.5.2"
   }
 }
